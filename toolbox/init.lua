@@ -1,0 +1,11 @@
+-- Entry point for the toolbox mod --
+
+-- mod.RegisterMod { name = "toolbox", version = "0.1" }
+
+dofile("config.lua")
+dofile("hooks.lua")
+dofile("actions.lua")
+
+if Config.do_tests then
+  dofile("tests.lua")
+end
