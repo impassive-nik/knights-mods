@@ -43,8 +43,8 @@ end
 --- Disable specific action listener
 --- @param action string: either ActionType or your own action id
 --- @param id string: the unique (per action type) id of your listener
---- @return boolean: true if the listener was successfully disabled
-function Actions.DisableListener(action, id)
+--- @return boolean: returns true if successfully disabled
+function Actions.Disable(action, id)
   local l_table = get_or_create_handler_table(action)
   if (l_table.handlers[id] == nil) then
     return false
@@ -57,7 +57,7 @@ end
 --- @param action string: either ActionType or your own action id
 --- @param id string: the unique (per action type) id of your listener
 --- @return boolean: true if the listener was successfully enabled
-function Actions.EnableListener(action, id)
+function Actions.Enable(action, id)
   local l_table = get_or_create_handler_table(action)
   if (l_table.handlers[id] == nil) then
     return false

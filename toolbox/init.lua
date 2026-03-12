@@ -3,6 +3,7 @@
 -- mod.RegisterMod { name = "toolbox", version = "0.1" }
 
 dofile("config.lua")
+dofile("menu.lua")
 dofile("hooks.lua")
 dofile("actions.lua")
 

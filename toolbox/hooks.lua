@@ -45,6 +45,18 @@ function Hooks.Disable(hook, id)
   h_table.handlers[id].enabled = false
 end
 
+--- Disable a previously registered hook handler (does not assert)
+--- @param hook HookType: one of the supported hook types
+--- @param id string: the unique id of your handler
+--- @return boolean: returns true if successfully disabled
+function Hooks.TryDisable(hook, id)
+  local h_table = custom_handlers[hook]
+  if h_table == nil then return false end
+  if h_table.handlers[id] == nil then return false end
+  h_table.handlers[id].enabled = false
+  return true
+end
+
 --- Enable a previously registered hook handler
 --- @param hook HookType: one of the supported hook types
 --- @param id string: the unique id of your handler

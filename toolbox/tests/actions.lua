@@ -23,8 +23,8 @@ assert(Actions.Emit(action_id, 15) == 30)
 assert(counter == 30)
 
 counter = 0
-Actions.DisableListener(action_id, listener_id)
-Actions.DisableListener(action_id, listener_id_2)
+Actions.Disable(action_id, listener_id)
+Actions.Disable(action_id, listener_id_2)
 assert(not Actions.IsEnabled(action_id, listener_id))
 assert(Actions.Emit(action_id, 1) == nil)
 assert(counter == 0)
