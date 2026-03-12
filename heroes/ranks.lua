@@ -1,0 +1,1 @@
+basic_ranks = {{text='Adventurer [1/4]'}, {text='Recruit [2/4]'}, {text='Knight [3/4]'}, {text='Hero [4/4]'}}
