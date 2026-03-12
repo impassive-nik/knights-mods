@@ -7,5 +7,5 @@ dofile("hooks.lua")
 dofile("actions.lua")
 
 if Config.do_tests then
-  dofile("tests.lua")
+  dofile("tests/init.lua")
 end
