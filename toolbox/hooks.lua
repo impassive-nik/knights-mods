@@ -25,7 +25,7 @@ Hooks = {
 function Hooks.Register(hook, id, handler)
   local h_table = custom_handlers[hook]
   assert(h_table ~= nil, "Hook '" .. hook .. "' does not exist")
-  assert(h_table.handlers[id] == nil or h_table.handlers[id].enabled == false, "Hook '" .. hook .. "' already contains the handler '" .. id .. "'")
+  assert(h_table.handlers[id] == nil or h_table.handlers[id].enabled == false or h_table.handlers[id].handler == handler, "Hook '" .. hook .. "' already contains the handler '" .. id .. "'")
   if Config.debug then
     DebugPrint("hook handler registered - '" .. hook .. "/" .. id .. "'")
   end
