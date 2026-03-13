@@ -75,7 +75,7 @@ function get_barb_gem_at(pos)
 		end
 	end	
 	if (DEBUG_ENABLED) then
-		print("Debug: there is no gems on this tile")
+		print("Debug: there are no gems on this tile")
 	end
 	return 0
 end
@@ -108,8 +108,8 @@ function on_gem_pickup()
 		heroes[i][3] = true
 		local count = get_barb_gem_at(cxt.pos)
 		local p_rank = ranks[pname].money
-		ranks[pname].money = MONEY_PER_GEM
-		kts.FlashMessage("Picked up a reviving gem! ")
+		ranks[cxt.actor].money = ranks[cxt.actor].money + MONEY_PER_GEM
+		kts.FlashMessage("heroes.picked_up_reviving_gem")
 	else
 		kts.Drop(i_revive_gem) --Drop previous gem, pickup a new one
 	end

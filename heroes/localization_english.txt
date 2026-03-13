@@ -1,0 +1,11 @@
+# Menu
+heroes.quest_type               Heroic Quest
+heroes.mission_type             Heroes
+heroes.quest_description_1      Collect enough barbaric gems to win
+heroes.quest_description_2      "Number of Gems" field now determines the amount of reviving gems
+heroes.quest_description_3      Note that number of barbarians depends on the number of players
+
+# Messages
+heroes.picked_up_reviving_gem   Picked up a reviving gem!
+heroes.picked_up_a_barbaric_gem Picked up a barbaric gem!
+heroes.picked_up_barbaric_gems  Picked up some barbaric gems!

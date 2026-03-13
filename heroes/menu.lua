@@ -5,16 +5,12 @@ local M = T.Menu
 
 local Heroes = { --Declare new Quest type
 	name = "Heroic Quest",
+	text_key = "heroes_quest_type",
 	description = function(S)
-	return "Heroes\n\n"
-		.. "Collect "..BARB_GEMS.." barbaric gems to win"
-		.. "\n"
-		.. "'Number of Gems' field now determines the amount of reviving gems"
-		.. "\n"
-		.. "Note that number of barbarians depends on the number of players"
+    return {"heroes.mission_type", "heroes.quest_description_1", "heroes.quest_description_2", "heroes.quest_description_3"}
 	end,
 	settings = { 
-		mission = "heroes",
+		mission = "heroespp",
 		book = "none",
 		wand = "none",
 		num_wands = 0,
@@ -42,7 +38,7 @@ table.insert(C.quest_order, "Heroes") --Put it's name into another table
 
 Quest_Heroes = { --Declare a selection (in menu) for this quest
 	id = "Heroes",
-	text = Heroes.name,
+	text_key = "heroes.quest_type",
 	min_players = Heroes.min_players,
 	max_players = Heroes.max_players,
 	min_teams = Heroes.min_teams,
@@ -51,7 +47,7 @@ Quest_Heroes = { --Declare a selection (in menu) for this quest
 
 Mission_Heroes_pp = {
 	id = "heroespp",
-	text = "Heroes",
+	text_key = "heroes.mission_type",
 	constrain = function(S)
 		--S.Is("quest", "Heroes")
 		S.Is("exit", "none")

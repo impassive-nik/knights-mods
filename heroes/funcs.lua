@@ -55,7 +55,7 @@ function on_gem_pickup()
 	if kts.GetNumHeld(cxt.actor, i_revive_gem)==1 then --Didn't he already have a gem?
 		local i = get_hero(cxt.originator)
 		heroes[i][3] = true
-		kts.FlashMessage("Picked up a reviving gem!")
+		kts.FlashMessage("heroes.picked_up_reviving_gem")
 	else
 		kts.Drop(i_revive_gem) --Drop previous gem, pickup a new one
 	end
@@ -100,7 +100,7 @@ function get_barb_gem_at(pos)
 		end
 	end	
 	if (DEBUG_ENABLED) then
-		print("Debug: there is no gems on this tile")
+		print("Debug: there are no gems on this tile")
 	end
 	return 0
 end

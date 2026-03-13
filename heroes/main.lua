@@ -28,10 +28,11 @@ function start_heroes()
 		table.insert(heroes, {p_list[i], 0, false, -1})-- 1:player link; 2:barbaric gems; 3:have a reviving gem?; 4:Respawns
 		if ppenabled then
 			local pname = "player " .. i -- fixme: kts.GetPlayerName(p_list[i])
-			local p_rank = ranks[pname]
+			local player = p_list[i]
+			local p_rank = ranks[player]
 			if p_rank == nil then
 				p_rank = {rank=1, promote=false, money=0}
-				ranks[pname] = p_rank
+				ranks[player] = p_rank
 			end
 			if p_rank.promote and (p_rank.rank < #basic_ranks) then
 				p_rank.rank = p_rank.rank + 1
@@ -49,12 +50,18 @@ function f_barb_gem()
 	local count = retrieve_barb_gem_from(cxt.pos)
 	heroes[i][2] = heroes[i][2]+count
 	if (count > 1) then
-		kts.FlashMessage("Picked up "..count.." barbaric gem! Total: "..heroes[i][2])	
+		kts.FlashMessage("heroes.picked_up_barbaric_gems")	
+		-- kts.FlashMessage("Picked up "..count.." barbaric gem! Total: "..heroes[i][2])	
 	else 
-		kts.FlashMessage("Picked up a barbaric gem! Total: "..heroes[i][2])		
+		kts.FlashMessage("heroes.picked_up_a_barbaric_gem")	
+		-- kts.FlashMessage("Picked up a barbaric gem! Total: "..heroes[i][2])		
 	end
 	local p_name = "player " .. i -- fixme: kts.GetPlayerName(cxt.originator)
-	local p_rank = ranks[p_name]
+	local p_rank = ranks[cxt.originator]
+	if p_rank == nil then
+		p_rank = {rank=1, promote=false, money=0}
+		ranks[cxt.originator] = p_rank
+	end
 	local receive = count*MONEY_PER_GEM
 	p_rank.money = p_rank.money + receive
 	if (MONEY_ENABLED) then
@@ -115,8 +122,7 @@ function respawn_func(player)
 			print(" - a player revived!")
 			-- print(" - "..kts.GetPlayerName(player).." revived!")
 		elseif (not DEBUG_ENABLED) then
-			local p_rank = nil
-			--fixme: local p_rank = ranks[kts.GetPlayerName(player)]
+			local p_rank = ranks[player]
 			if (p_rank ~= nil) then
 				p_rank.rank = 1
 				p_rank.promote = false
