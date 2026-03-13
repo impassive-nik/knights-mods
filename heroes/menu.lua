@@ -7,7 +7,7 @@ local Heroes = { --Declare new Quest type
 	name = "Heroic Quest",
 	text_key = "heroes_quest_type",
 	description = function(S)
-    return {"heroes.mission_type", "heroes.quest_description_1", "heroes.quest_description_2", "heroes.quest_description_3"}
+    return {"heroes.mission_type", {key="heroes.quest_description_1", params={BARB_GEMS}, plural=BARB_GEMS}, "heroes.quest_description_2", "heroes.quest_description_3"}
 	end,
 	settings = { 
 		mission = "heroespp",

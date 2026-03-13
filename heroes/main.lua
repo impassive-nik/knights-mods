@@ -49,13 +49,8 @@ function f_barb_gem()
 	local i = get_hero(cxt.originator)
 	local count = retrieve_barb_gem_from(cxt.pos)
 	heroes[i][2] = heroes[i][2]+count
-	if (count > 1) then
-		kts.FlashMessage("heroes.picked_up_barbaric_gems")	
-		-- kts.FlashMessage("Picked up "..count.." barbaric gem! Total: "..heroes[i][2])	
-	else 
-		kts.FlashMessage("heroes.picked_up_a_barbaric_gem")	
-		-- kts.FlashMessage("Picked up a barbaric gem! Total: "..heroes[i][2])		
-	end
+
+	kts.FlashMessage({key="heroes.picked_up_barbaric_gem", params={count, heroes[i][2]}, plural=count})
 	local p_name = "player " .. i -- fixme: kts.GetPlayerName(cxt.originator)
 	local p_rank = ranks[cxt.originator]
 	if p_rank == nil then
