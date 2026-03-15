@@ -1,6 +1,8 @@
 -- Entry point for the toolbox mod --
 
--- mod.RegisterMod { name = "toolbox", version = "0.1" }
+if mod ~= nil then
+  mod.RegisterMod { name = "toolbox", version = "0.1" }
+end
 
 dofile("config.lua")
 dofile("menu.lua")
